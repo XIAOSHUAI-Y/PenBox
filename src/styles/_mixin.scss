@@ -1,0 +1,47 @@
+// 使用sass中的mixin功能
+/** 
+  什么是mixin？
+  Mixin 类似于函数，但它用于生成 CSS 代码,它的主要作用是：
+  
+  代码复用：避免重复编写相同的 CSS 代码。
+
+  模块化：将常用的样式逻辑封装成独立的模块。
+
+  参数化：通过传递参数，动态生成不同的样式。
+**/
+
+@mixin button-size($padding-y, $padding-x, $font-size, $border-radius) {
+  padding: $padding-y $padding-x;
+  font-size: $font-size;
+  border-radius: $border-radius;
+}
+
+@mixin button-style(
+  $background,
+  $border,
+  $color,
+  $hover-background: lighten($background, 7.5%), //sass内置函数lighten，减弱背景色
+  $hover-border: lighten($border, 10%),
+  $hover-color: $color,
+) {
+  color: $color;
+  background: $background;
+  border-color: $border;
+  &:hover {
+    color: $hover-color;
+    background: $hover-background;
+    border: $hover-border;
+  }
+  &:focus,
+  &.focus {
+    color: $hover-color;
+    background: $hover-background;
+    border: $hover-border;
+  }
+  &:disabled,
+  &.disabled {
+    color: $color;
+    background: $background;
+    border: $border;
+  }
+}
