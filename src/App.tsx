@@ -1,17 +1,32 @@
 import { useState } from 'react'
 import Button, { ButtonSize, ButtonType } from './components/Button/button'
+import Menu from './components/Menu/menu'
+import MenuItem from './components/Menu/menuItem'
+import SubMenu from './components/Menu/subMenu'
 
 
 function App() {
-  const [count, setCount] = useState(0)
   return (
     <>
-      <span>hhhhh</span>
-      <Button> Button </Button>
-      <Button btnType={ButtonType.Primary} size={ButtonSize.Large}> Button </Button>
-      <Button btnType={ButtonType.Danger} size={ButtonSize.Small}> Button </Button>
-      <Button btnType={ButtonType.Default} size={ButtonSize.Large} disabled> Button </Button>
-      <Button btnType={ButtonType.Link} href='https://www.baidu.com'> Baidu </Button>
+      <Menu defaultIndex='0' onSelect={(index) => {alert(index)}} >
+        <MenuItem>
+          cool link
+        </MenuItem>
+        <MenuItem disabled>
+          cool link 2
+        </MenuItem>
+        <SubMenu title='dropdown'>
+          <MenuItem>
+            dropdown1
+          </MenuItem>
+          <MenuItem>
+            dropdown2
+          </MenuItem>
+        </SubMenu>
+        <MenuItem>
+          cool link 3
+        </MenuItem>
+      </Menu>
     </>
   )
 }
