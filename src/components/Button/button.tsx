@@ -2,17 +2,10 @@ import React from 'react'
 import classNames from 'classnames'
 
 // 创建枚举,定义按钮的尺寸
-export enum ButtonSize {
-  Large = 'lg',
-  Small = 'sm'
-}
+export type ButtonSize = "lg" | "sm"
 // 创建枚举，定义按钮的类型
-export enum ButtonType {
-  Primary = 'primary',
-  Default = 'default',
-  Danger = 'danger',
-  Link = 'link'
-}
+export type ButtonType = 'primary' | 'default' | 'danger' | 'link'
+
 // 定义按钮的基础属性接口
 interface BaseButtonProps {
   className?: string,
@@ -32,7 +25,7 @@ export type ButtonProps = Partial<NativeButtonProps & AnchorButtonprops>
 // 定义 Button 组件
 const Button: React.FC<ButtonProps> = (props) => {
   const {
-    btnType = ButtonType.Default,// 默认按钮类型为 Default
+    btnType = 'default',
     className,
     disabled  = false,// 默认不禁用按钮
     size,
@@ -45,10 +38,10 @@ const Button: React.FC<ButtonProps> = (props) => {
   const classes = classNames('btn', className, {
     [`btn-${btnType}`]: btnType,
     [`btn-${size}`]: size,
-    'disabled': (btnType === ButtonType.Link && disabled) // 如果是链接按钮且禁用，添加 disabled 类
+    'disabled': (btnType === 'link' && disabled) // 如果是链接按钮且禁用，添加 disabled 类
   })
   // 如果是链接按钮且提供了 href，渲染 <a> 标签
-  if (btnType === ButtonType.Link && href) {
+  if (btnType === 'link' && href) {
     return (
       <a
         className={classes}
