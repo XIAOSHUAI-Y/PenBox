@@ -23,7 +23,7 @@ type AnchorButtonprops = BaseButtonProps & React.AnchorHTMLAttributes<HTMLElemen
 export type ButtonProps = Partial<NativeButtonProps & AnchorButtonprops>
 
 // 定义 Button 组件
-const Button: React.FC<ButtonProps> = (props) => {
+export const Button: React.FC<ButtonProps> = (props) => {
   const {
     btnType = 'default',
     className,
