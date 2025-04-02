@@ -40,10 +40,10 @@ const generateMenu = (props: MenuProps) => {
 // 创建动态样式文件
 const createStyleFile = () => {
 	const cssFile: string = `
-		.viking-submenu {
+		.yjy-submenu {
 			display: none;
 		}
-		.is-visible .viking-submenu {
+		.is-visible .yjy-submenu {
 			display: block;
 		}
 	`
@@ -77,7 +77,7 @@ describe('test Menu and MenuItem component', () => {
 		// 断言菜单元素在文档中
 		expect(menuElement).toBeInTheDocument();
 		// 断言菜单元素有正确的类名
-		expect(menuElement).toHaveClass('viking-menu test');
+		expect(menuElement).toHaveClass('yjy-menu test');
 
 		expect(menuElement.querySelectorAll(':scope > li').length).toEqual(4);
 		// 断言默认激活的菜单项有正确的类名
@@ -119,8 +119,12 @@ describe('test Menu and MenuItem component', () => {
 	});
 	// 测试悬停子菜单时是否显示下拉菜单项
 	it('should show dropdown items when hover on submenu', () => {
-		expect(wrapper.queryByText('drop1')).not.toBeVisible()
+		// expect(wrapper.queryByText('drop1')).not.toBeVisible()
+		// 初始状态下应该不存在或不可见
+		expect(wrapper.queryByText('drop1')).toBeNull();
+		// 悬停在 dropdown 上
 		const dropdownElement = wrapper.getByText('dropdown')
+		// 现在应该能看见 drop1
 		fireEvent.mouseEnter(dropdownElement)
 		expect(wrapper.queryByText('drop1')).toBeVisible()
 		fireEvent.click(wrapper.getByText('drop1'))

@@ -24,7 +24,7 @@ const config: StorybookConfig = {
   addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
-    "@storybook/addon-docs", // 确保 docs 插件被添加
+    // "@storybook/addon-docs", // 确保 docs 插件被添加
     {
       name: "@storybook/addon-docs",
       options: {

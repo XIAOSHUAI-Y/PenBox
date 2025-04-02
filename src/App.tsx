@@ -7,6 +7,7 @@ import Icon from './components/Icon/icon'
 import Button from './components/Button/button'
 import { useRef, useState } from 'react'
 import Transition from './components/Transition/transition'
+import Input from './components/Input/input'
 
 library.add(fas)
 

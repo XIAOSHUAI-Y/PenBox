@@ -71,7 +71,7 @@ const SubMenu: React.FC<SubMenuProps> = ({ index, title, children, className }) 
         unmountOnExit
       >
         <ul
-          className='viking-submenu'
+          className='yjy-submenu'
           ref={subMenuRef} // 绑定 ref
         >
           {childrenComponent}

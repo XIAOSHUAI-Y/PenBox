@@ -1,4 +1,4 @@
-.viking-menu {
+.yjy-menu {
 	display: flex;
 	flex-wrap: wrap;
 	padding-left: 0;
@@ -39,7 +39,7 @@
         transform: rotate(180deg);
       }
     }
-		.viking-submenu {
+		.yjy-submenu {
 			// display: none;
 			position: absolute;
 			color: black;
@@ -52,7 +52,7 @@
 			z-index: 100;
 			min-width: 100%; // 使下拉菜单宽度与菜单项一致
     }
-		&.is-visible .viking-submenu {
+		&.is-visible .yjy-submenu {
 			// display: block; // 显示子菜单
 			margin-top: 4px;
 		}
@@ -99,13 +99,13 @@
         transform: rotate(180deg);
       }
     }
-		.viking-submenu {
+		.yjy-submenu {
 			color: black;
 			display: none;
 			padding-left: 0px;
 			list-style: none;
 		}
-		&.is-visible .viking-submenu {
+		&.is-visible .yjy-submenu {
 			display: block;
 		}
 		.menu-item {
