@@ -1,6 +1,10 @@
 import React from "react"
 import classNames from "classnames"
 import { FontAwesomeIcon, FontAwesomeIconProps } from '@fortawesome/react-fontawesome'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faSpinner } from '@fortawesome/free-solid-svg-icons'
+
+library.add(faSpinner)
 
 
 // 定义主题类型，支持多种主题

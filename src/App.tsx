@@ -18,7 +18,7 @@ function App() {
   return (
     <>
       {/* <Icon icon="coffee" theme='danger' size='10x'/> */}
-      <Menu defaultIndex='0' onSelect={(index) => {alert(index)}}>
+      <Menu defaultIndex='0'>
         <MenuItem>
           cool link
         </MenuItem>
@@ -37,8 +37,8 @@ function App() {
           cool link 3
         </MenuItem>
       </Menu>
-      <Button size="lg" onClick={() => { setShow(!show)}}>Toggle</Button>
-      <Transition
+      {/* <Button size="lg" onClick={() => { setShow(!show)}}>Toggle</Button> */}
+      {/* <Transition
         in={show}
         timeout={300}
         animation="zoom-in-top"
@@ -71,7 +71,7 @@ function App() {
         nodeRef={nodeRef2}
       >
         <div ref={nodeRef2}><Button btnType="primary" size="lg">a large Button</Button></div>
-      </Transition>
+      </Transition> */}
     </>
   )
 }
