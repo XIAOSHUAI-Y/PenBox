@@ -4,6 +4,7 @@ import Icon from '../Icon/icon'
 import useDebounce from '../../hooks/useDebounce'
 import classNames from 'classnames'
 import useClickOutside from '../../hooks/useClickOutside'
+import Transition from '../Transition/transition'
 
 interface DataSourceObject {
   value: string
@@ -32,6 +33,7 @@ export const AutoComplete = <T extends {}>(props: AutoCompleteProps<T>) => {
   // const [state, setState] = useState(false)
   const triggerSearch = useRef(false)
   const componentRef = useRef<HTMLDivElement>(null)
+  const dropDownRef = useRef(null)
   const debouncedValue = useDebounce(inputValue, 500)
   useClickOutside(componentRef, () => { setSuggestions([])})
 
@@ -109,19 +111,30 @@ export const AutoComplete = <T extends {}>(props: AutoCompleteProps<T>) => {
   }
 
   const generateDropdown = () => (
-    <ul className={classNames({ show: suggestions.length > 0 })}>
-      {suggestions.map((item, index) => {
-        const cnames = classNames('suggestion-item', {
-          'item-highlighted': index === highlightIndex
-        })
-        return (
-          <li key={index} className={cnames} onClick={() => handleSelect(item)}>
-            {/* 在展示时，展示筛选后的内容 */}
-            {renderTemplate(item)}
-          </li>
-        )
-      })}
-    </ul>
+    <Transition
+      in={suggestions.length > 0}
+      timeout={300}
+      animation="zoom-in-top"
+      nodeRef={dropDownRef}
+      unmountOnExit
+    >
+      <ul className="suggestion-list" ref={dropDownRef}>
+        {suggestions.map((item, index) => {
+          const cnames = classNames('suggestion-item', {
+            'item-highlighted': index === highlightIndex
+          });
+          return (
+            <li 
+              key={index} 
+              className={cnames} 
+              onClick={() => handleSelect(item)}
+            >
+              {renderTemplate(item)}
+            </li>
+          );
+        })}
+      </ul>
+    </Transition>
   )
 
   return (
@@ -133,7 +146,7 @@ export const AutoComplete = <T extends {}>(props: AutoCompleteProps<T>) => {
         {...restProps} />
       {/* 加载图标 */}
       { loading && <ul><Icon icon="spinner" spin/></ul>} 
-      {suggestions.length > 0 && generateDropdown()}
+      {generateDropdown()}
     </div>
   )
 }
