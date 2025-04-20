@@ -1,0 +1,14 @@
+{
+  "..\\node_modules\\.pnpm\\next@15.3.1_@babel+core@7.26.9_babel-plugin-macros@3.1.0_react-dom@19.1.0_react@19.1.0__react@19.1.0_sass@1.85.1\\node_modules\\next\\dist\\client\\index.js -> ../pages/_app": {
+    "id": "..\\node_modules\\.pnpm\\next@15.3.1_@babel+core@7.26.9_babel-plugin-macros@3.1.0_react-dom@19.1.0_react@19.1.0__react@19.1.0_sass@1.85.1\\node_modules\\next\\dist\\client\\index.js -> ../pages/_app",
+    "files": [
+      "static/chunks/_pages-dir-browser_node_modules_pnpm_next_15_3_1__babel_core_7_26_9_babel-plugin-macros_3_1_0-353c1b.js"
+    ]
+  },
+  "..\\node_modules\\.pnpm\\next@15.3.1_@babel+core@7.26.9_babel-plugin-macros@3.1.0_react-dom@19.1.0_react@19.1.0__react@19.1.0_sass@1.85.1\\node_modules\\next\\dist\\client\\index.js -> ../pages/_error": {
+    "id": "..\\node_modules\\.pnpm\\next@15.3.1_@babel+core@7.26.9_babel-plugin-macros@3.1.0_react-dom@19.1.0_react@19.1.0__react@19.1.0_sass@1.85.1\\node_modules\\next\\dist\\client\\index.js -> ../pages/_error",
+    "files": [
+      "static/chunks/_pages-dir-browser_node_modules_pnpm_next_15_3_1__babel_core_7_26_9_babel-plugin-macros_3_1_0-727fc0.js"
+    ]
+  }
+}

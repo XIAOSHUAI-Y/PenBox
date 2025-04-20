@@ -1,15 +1,55 @@
 {
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ],
+  // "files": [],
+  // "references": [
+  //   {
+  //     "path": "./tsconfig.app.json"
+  //   },
+  //   {
+  //     "path": "./tsconfig.node.json"
+  //   }
+  // ],
   "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "tsconfig.app.json": [
+        "./tsconfig.app.json"
+      ],
+      "tsconfig.node.json": [
+        "./tsconfig.node.json"
+      ]
+    },
     "esModuleInterop": true,
-    "jsx": "react-jsx",
-    "types": ["jest", "@testing-library/jest-dom"]
+    // "jsx": "preserve",
+    "jsx": "preserve",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "types": [
+      "jest",
+      "@testing-library/jest-dom"
+    ],
+    "target": "ES6",
+    "strict": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "noEmit": true,
+    "incremental": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true
   },
   "include": [
-    "./jest-setup.ts"
+    "./jest-setup.ts",
+    "src",
+    "pages",
+    "components",
+    "styles"
   ],
+  "exclude": [
+    "node_modules"
+  ]
 }
