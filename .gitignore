@@ -24,3 +24,10 @@ dist-ssr
 *.sw?
 
 *storybook.log
+
+.cache/
+.env
+.env.local
+.env*.local
+*.css.map
+*.js.map

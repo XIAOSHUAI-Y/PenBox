@@ -9,7 +9,7 @@ export const DemoBlock = ({ children }: any) => {
   return <div>{children}</div>
 }
 
-const components = {
+const component = {
   DemoBlock,
 };
 
@@ -17,13 +17,13 @@ export default function DocPage({ slug }: { slug: string }) {
   // 动态加载当前目录下的MDX文件
   console.log('Current slug:', slug);
   const MdxContent = dynamic(() => import(`./packages/${slug}.mdx`), {
-    ssr: true, // 优先启用SSR
+    ssr: false, // 优先启用SSR
     loading: () => <p>Loading...</p>
   })
 
   return (
     <div className="doc-container">
-      <MDXProvider components={components}>
+      <MDXProvider components={component}>
         <MdxContent />
       </MDXProvider>
     </div>
@@ -48,6 +48,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const slug = (params?.slug as string[])[0] // 获取第一个slug参数
+  console.log('slug', slug)
   return { props: { slug } }
 }
 
