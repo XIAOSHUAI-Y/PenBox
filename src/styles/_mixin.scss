@@ -1,4 +1,5 @@
 @use "sass:color";
+// @use 'variables' as *;
 // 使用sass中的mixin功能
 /** 
   什么是mixin？
@@ -22,7 +23,7 @@
   $border,
   $color,
   $hover-background: color.adjust($background, $lightness: 7.5%), 
-  $hover-border: lighten($border, 10%),
+  $hover-border: color.adjust($border, $lightness: 10%),
   $hover-color: $color,
 ) {
   color: $color;
